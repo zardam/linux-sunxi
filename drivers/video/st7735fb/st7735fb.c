@@ -643,7 +643,7 @@ static int __devinit st7735fb_probe (struct spi_device *spi)
 		goto alloc_fail;
 
 	/* Allocate spi write buffer */
-	spi_writebuf = vzalloc(vmem_size);
+	spi_writebuf = kmalloc(vmem_size, GFP_DMA);
 	if (!spi_writebuf)
 		goto alloc_fail;
 

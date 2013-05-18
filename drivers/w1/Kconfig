@@ -25,6 +25,14 @@ config W1_CON
 	  2. Userspace commands. Includes read/write and search/alarm search commands.
 	  3. Replies to userspace commands.
 
+config W1_SUNXI
+	depends on GPIO_SUNXI
+	tristate "1-wire sunxi support"
+	default n
+	--- help ---
+	  1-wire sunxi support. The GPIO pin can be set in the script.bin inside
+	  the section [w1_para] with the key name gpio. 
+
 source drivers/w1/masters/Kconfig
 source drivers/w1/slaves/Kconfig
 
